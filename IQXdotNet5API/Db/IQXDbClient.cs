@@ -10,7 +10,7 @@ namespace IQXdotNet5API.Db
 
         public IQXDbClient(IConfiguration config)
         {
-            _connectionString = config["IqxDb:ConnectionString"];
+            _connectionString = string.Format(config["IqxDb:ConnectionString"]);
         }
 
         public OdbcConnection GetConnection()

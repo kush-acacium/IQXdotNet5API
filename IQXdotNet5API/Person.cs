@@ -7,8 +7,8 @@ namespace IQXdotNet5API
 {
     public class Person
     {
-        public string PersonId { get; set; }
-        public string Name { get; set; }
+        public string EmployeeID { get; set; }
+        public string GivenName { get; set; }
 
     }
 }

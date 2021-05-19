@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  db:
+    image: jaschweder/sybase:latest
+    ports: 
+        - 54123:2638
+
+  iqxdotnet5api:
+    image: ${DOCKER_REGISTRY-}iqxdotnet5api
+    build:
+      context: .
+      dockerfile: IQXdotNet5API/Dockerfile
+    depends_on:
+      - db
+

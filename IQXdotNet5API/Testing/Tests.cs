@@ -20,7 +20,7 @@ namespace IQXdotNet5API.Testing
         public void can_get_list_of_person_records()
         {
             List<Person> people = new List<Person>();
-            OdbcCommand command = new OdbcCommand("Select top 10 PersonId, Name from pears.Person");
+            OdbcCommand command = new OdbcCommand("Select top 10 EmployeeID, GivenName from Employees");
 
             using (var connection = Db.GetConnection())
             {
@@ -31,7 +31,7 @@ namespace IQXdotNet5API.Testing
                 {
                     while (reader.Read())
                     {
-                        Person p = new Person { PersonId = reader.GetString(0), Name = reader.GetString(1) };
+                        Person p = new Person { EmployeeID = reader.GetString(0), GivenName = reader.GetString(1) };
                         people.Add(p);
                     }
                 }

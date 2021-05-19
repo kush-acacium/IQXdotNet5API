@@ -26,11 +26,9 @@ namespace IQXdotNet5API.Controllers
             {
                 List<Person> people = new List<Person>();
 
-                //string connectionString = "DRIVER={SQL Anywhere 17};server=iqxbuild;Database=iqxbuild;Uid=match;pwd=hctam;LINKs=tcpip(host=h-iqxtest-01,4096);CPOOL=YES(MaxCached=100);IDLE=1;";
-                string queryString = "Select top 10 PersonId, Name from Person";
+                string queryString = "Select top 10 EmployeeID, GivenName from Employees";
                 OdbcCommand command = new OdbcCommand(queryString);
 
-                //using (OdbcConnection connection = new OdbcConnection(connectionString))
                 using (OdbcConnection connection = _client.GetConnection())
                 {
                     command.Connection = connection;
@@ -40,7 +38,7 @@ namespace IQXdotNet5API.Controllers
                     {
                         while (reader.Read())
                         {
-                            Person p = new Person() { PersonId = reader.GetString(0), Name = reader.GetString(1) };
+                            Person p = new Person() { EmployeeID = reader.GetString(0), GivenName = reader.GetString(1) };
                             people.Add(p);
                         }
                     }
