@@ -13,4 +13,3 @@ services:
       dockerfile: IQXdotNet5API/Dockerfile
     depends_on:
       - db
-
